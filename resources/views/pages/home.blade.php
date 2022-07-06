@@ -16,7 +16,9 @@
 				{{$posts[0]->desc}}
 			</h3>
 			<p>
-				<button class="btn btn-primary">Read More</button>
+				<a href="/posts/{{$posts[0]->id}}">
+					<button class="btn btn-primary">Read More</button>
+				</a>
 			</p>
 		</div>
 		</div>
@@ -35,7 +37,7 @@
 				<span></span>
 			</header>
 
-			<div class="flex justify-center gap-x-10">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 				@for ($i = 0; $i < 3; $i++)
 					<x-post-tab :cover="false" :post="$posts[$i]" />
 				@endfor
@@ -53,17 +55,10 @@
 				<span></span>
 			</header>
 
-			<div class="flex flex-col gap-y-5">
-				<div class="flex justify-center gap-x-10">
-					@for ($i = 0; $i < 3; $i++)
-						<x-post-tab :post="$posts[$i]" />
-					@endfor
-				</div>
-				<div class="flex justify-center gap-x-10">
-					@for ($i = 3; $i < 6; $i++)
-						<x-post-tab :post="$posts[$i]" />
-					@endfor
-				</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+				@for ($i = 0; $i < 6; $i++)
+					<x-post-tab :post="$posts[$i]" />
+				@endfor
 			</div>
 		</div>
 	</section>
@@ -78,7 +73,7 @@
 				<span></span>
 			</header>
 
-			<div class="flex justify-center gap-x-10">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 				@for ($i = 0; $i < 2; $i++)
 					<x-post-tab :post="$posts[$i]" />
 				@endfor
@@ -98,18 +93,13 @@
 
 			<div class="flex gap-x-10">
 				<div>
-					<div class="flex justify-center gap-x-10">
-						@for ($i = 0; $i < 2; $i++)
-					<x-post-tab :post="$posts[$i]" />
-				@endfor
-					</div>
-					<div class="flex justify-center gap-x-10">
-						@for ($i = 2; $i < 4; $i++)
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+						@for ($i = 0; $i < 4; $i++)
 							<x-post-tab :post="$posts[$i]" />
 						@endfor
 					</div>
 				</div>
-				<div>
+				<div class="basis-1/2">
 					<h3>
 						Featured Category
 					</h3>
