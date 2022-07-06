@@ -12,5 +12,6 @@
 	@include("inc.navbar")
 	@section("content")
 	@show
+	@include("inc.footer")
 </body>
 </html>

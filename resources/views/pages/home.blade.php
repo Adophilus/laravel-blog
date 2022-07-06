@@ -9,6 +9,12 @@
 	<section class="flex h-screen">
 		<div class="flex justify-end items-center w-2/5">
 		<div class="w-90 p-6 drop-shadow-2xl translate-x-1/2 z-10 bg-white py-10">
+			<div class="flex gap-x-2">
+                <span class="h-1 w-4 bg-primary self-center"></span>
+                <span>
+                    Lifestyle
+                </span>
+            </div>
 			<h1 class="font-bold text-4xl mb-2">
 				{{$posts[0]->title}}
 			</h1>
@@ -73,7 +79,7 @@
 				<span></span>
 			</header>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 				@for ($i = 0; $i < 2; $i++)
 					<x-post-tab :post="$posts[$i]" />
 				@endfor
@@ -91,7 +97,7 @@
 				<span></span>
 			</header>
 
-			<div class="flex gap-x-10">
+			<div class="flex flex-col-reverse lg:flex-row gap-x-10">
 				<div>
 					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 						@for ($i = 0; $i < 4; $i++)

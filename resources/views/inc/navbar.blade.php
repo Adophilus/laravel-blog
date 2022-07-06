@@ -2,7 +2,7 @@
 	<nav class="container mx-auto px-4 flex py-4 justify-between">
 		<div class="flex items-center">
 			<a href="/">
-				<img src="/imgs/logo.png" class="w-24" alt="alive blog" />
+				<img src="/imgs/logo-black.png" class="w-24" alt="alive blog" />
 			</a>
 		</div>
 		<div class="flex lg:hidden items-center">
