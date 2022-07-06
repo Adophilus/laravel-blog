@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production",
+    "format:watch": "node .scripts/format.js",
+    "format:prettier": "prettier --write --plugin=@prettier/plugin-php"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.18.9",
+    "autoprefixer": "^10.4.7",
+    "axios": "^0.21",
+    "laravel-mix": "^6.0.6",
+    "lodash": "^4.17.19",
+    "node-watch": "^0.7.3",
+    "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.4",
+    "webpack": "^5.73.0"
+  },
+  "dependencies": {
+    "@alpinejs/persist": "^3.10.2",
+    "alpinejs": "^3.10.2",
+    "daisyui": "^2.18.0"
+  }
+}
