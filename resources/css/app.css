@@ -6,7 +6,7 @@
 @import url('blog-post.css');
 
 .my-container {
-  @apply container mx-auto px-16;
+  @apply container mx-4 sm:mx-auto lg:px-16;
 }
 
 .section-title {

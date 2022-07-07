@@ -19,7 +19,15 @@
 }
 
 .blog-post .blockquote {
-  @apply border-l-4 border-l-primary p-2 pl-3 my-6;
+  @apply border-l-4 border-l-primary p-2 pl-3 my-6 flex flex-col;
+}
+
+.blog-post .author {
+  @apply self-end;
+}
+
+.blog-post .hyperlink {
+  @apply link link-primary hover:text-white duration-200 ease-in-out z-10 duration-200 ease-in-out hover:bg-primary mr-1;
 }
 
 .blog-post .cover {
