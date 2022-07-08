@@ -10,7 +10,8 @@ class Tag extends Model
 {
   use HasFactory;
 
-  // protected $primaryKey = 'name';
+  protected $primaryKey = 'name';
+  public $incrementing = false;
 
   public function posts()
   {

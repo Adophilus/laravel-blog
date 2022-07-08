@@ -21,9 +21,9 @@
 				</h1>
 				<div class="flex flex-col gap-y-2 items-center sm:flex-row gap-x-6">
 					<div class="flex gap-x-2">
-						<img src="/imgs/author.svg" class="w-10 h-10 rounded-full" />
+						<img src="data:image/jpeg;base64,{{$post->author->profile}}" class="w-10 h-10 rounded-full" />
 						<span class="self-center">
-							{{$post->author}}
+							{{$post->author->first_name}} {{$post->author->last_name}}
 						</span>
 					</div>
 					<x-circle className="hidden sm:block self-center text-gray-500" />
@@ -70,7 +70,9 @@
 
 			<div>
 				<!-- Blog post content -->
-				<div x-html="content" class="mb-20 lg:mx-32"></div>
+				<div n-html="content" class="mb-20 lg:mx-32">
+					{!!$post->content!!}
+				</div>
 
 				<!-- Blog post footer -->
 				<div class="flex flex-col md:flex-row gap-y-6 items-center justify-center gap-x-10 border-y-2 border-gray-300 py-10">

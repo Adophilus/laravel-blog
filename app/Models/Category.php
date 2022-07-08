@@ -10,6 +10,7 @@ class Category extends Model
   use HasFactory;
 
   protected $primaryKey = 'name';
+  public $incrementing = false;
 
   public function posts()
   {

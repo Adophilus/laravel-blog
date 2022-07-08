@@ -14,7 +14,7 @@ class Post extends Model
 
   public function author()
   {
-    return $this->belongsTo(User::class);
+    return $this->belongsTo(User::class, 'author_username');
   }
 
   public function category()
@@ -24,6 +24,6 @@ class Post extends Model
 
   public function tags()
   {
-    return $this->belongsToMany(Tag::class);
+    return $this->belongsToMany(Tag::class, 'post_tag', 'post_id');
   }
 }
