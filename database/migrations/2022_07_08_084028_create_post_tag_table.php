@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Post;
 
-class PopulatePosts extends Migration
+class CreatePostTagTable extends Migration
 {
   /**
    * Run the migrations.
@@ -14,13 +13,10 @@ class PopulatePosts extends Migration
    */
   public function up()
   {
-    $post = new Post()
-    $post->cover = "/uploads/productivity-banner.jpg";
-    $post->title = "How To Boost Productivity As A Developer";
-    $post->author = "adophilus";
-    $post->desc = "";
-    $post->content = "";
-    $post->save();
+    Schema::create('post_tag', function (Blueprint $table) {
+      $table->foreignId('post_id')->constrained();
+      $table->foreignId('tag_id')->constrained();
+    });
   }
 
   /**
@@ -30,6 +26,6 @@ class PopulatePosts extends Migration
    */
   public function down()
   {
-    //
+    Schema::dropIfExists('post_tag');
   }
 }

@@ -29,7 +29,7 @@
 					<x-circle className="hidden sm:block self-center text-gray-500" />
 					<div class="flex gap-x-4">
 						<div class="text-gray-500 self-center">
-							June 5, 2022
+							{{date_format($post->updated_at, "M j, Y")}}
 						</div>
 						<x-circle className="self-center text-gray-500" />
 						<div class="text-gray-500 self-center">
