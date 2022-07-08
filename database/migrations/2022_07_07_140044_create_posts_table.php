@@ -20,18 +20,8 @@ class CreatePostsTable extends Migration
       $table->string('author_username');
       $table->string('category_name');
       $table->string('desc');
-      $table->text('content');
+      $table->mediumText('content');
       $table->timestamps();
-
-      // $table
-      //   ->foreign('author_username')
-      //   ->references('username')
-      //   ->on('users');
-
-      // $table
-      //   ->foreign('category_name')
-      //   ->references('name')
-      //   ->on('categories');
     });
   }
 

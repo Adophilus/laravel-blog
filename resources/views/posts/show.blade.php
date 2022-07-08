@@ -95,7 +95,6 @@
 		</section>
 	</section>
 
-
 	<!-- Featured Posts -->
 	<section class="bg-white py-10">
 		<div class='my-container px-8'>
@@ -118,4 +117,7 @@
 			</div>
 		</div>
 	</section>
+
+	@include("inc.comments")
+	
 @endsection
