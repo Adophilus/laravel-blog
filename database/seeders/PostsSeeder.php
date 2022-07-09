@@ -17,7 +17,7 @@ class PostsSeeder extends Seeder
    */
   public function run()
   {
-    for ($i = 0; $i < 10; $i++) {
+    foreach (User::all() as $author) {
       $post = new Post([
         'cover' => '/uploads/productivity-banner.jpg',
         'title' => 'How To Boost Productivity As A Developer',
@@ -26,7 +26,6 @@ class PostsSeeder extends Seeder
         'content' => file_get_contents(__DIR__ . '/../../public/dev/post.html')
       ]);
 
-      $author = User::inRandomOrder()->first();
       $category = Category::find('lifestyle');
       $tag = Tag::find('tech');
 

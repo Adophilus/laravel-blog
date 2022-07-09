@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\PostsApiController;
+use App\Http\Controllers\PostCommentsApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +20,10 @@ use App\Http\Controllers\PostsController;
 
 Route::get('/', [PagesController::class, 'home']);
 Route::resource('posts', PostsController::class);
+
+Route::group(['prefix' => 'api/posts'], function () {
+  Route::get('/', [PostsApiController::class, 'index']);
+  Route::get('/{id}/content', [PostsApiController::class, 'content']);
+
+  Route::get('/{id}/comments', [PostCommentsApiController::class, 'index']);
+});
