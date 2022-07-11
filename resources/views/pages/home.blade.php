@@ -44,9 +44,9 @@
 			</header>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-				@for ($i = 0; $i < 3; $i++)
-					<x-post-tab :cover="false" :post="$posts[$i]" />
-				@endfor
+				@foreach ($posts->splice(0, 3) as $post)
+					<x-post-tab :cover="false" :post="$post" />
+				@endforeach
 			</div>
 		</div>
 	</section>
@@ -62,9 +62,9 @@
 			</header>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-				@for ($i = 0; $i < 6; $i++)
-					<x-post-tab :post="$posts[$i]" />
-				@endfor
+				@foreach ($posts->splice(0, 6) as $post)
+					<x-post-tab :post="$post" />
+				@endforeach
 			</div>
 		</div>
 	</section>
@@ -80,9 +80,9 @@
 			</header>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-				@for ($i = 0; $i < 2; $i++)
-					<x-post-tab :post="$posts[$i]" />
-				@endfor
+				@foreach ($posts->splice(0, 2) as $post)
+					<x-post-tab :post="$post" />
+				@endforeach
 			</div>
 		</div>
 	</section>
@@ -100,9 +100,9 @@
 			<div class="flex flex-col-reverse lg:flex-row gap-x-10">
 				<div>
 					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-						@for ($i = 0; $i < 4; $i++)
-							<x-post-tab :post="$posts[$i]" />
-						@endfor
+						@foreach ($posts->splice(0, 4) as $post)
+							<x-post-tab :post="$post" />
+						@endforeach
 					</div>
 				</div>
 				<div class="basis-1/2">
