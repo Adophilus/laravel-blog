@@ -10,8 +10,16 @@ class Comment extends Model
 {
   use HasFactory;
 
+  protected $fillable = ['poster', 'email', 'content'];
+  protected $hidden = ['email'];
+
   public function post()
   {
     return $this->belongsTo(Post::class);
+  }
+
+  public function replyTo()
+  {
+    return $this->hasOne(Comment::class, 'id', 'reply_to');
   }
 }

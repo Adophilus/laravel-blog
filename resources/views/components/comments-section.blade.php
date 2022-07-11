@@ -6,11 +6,18 @@
     </header>
     <div class="text-xl divide-y-2 divide-gray-300">
         @foreach ($post->comments->splice(0, 3) as $comment)
-            <div class="flex flex-col py-4 gap-y-1">
+            <div class="flex flex-col py-4 gap-y-1" id="comment{{$comment->id}}">
                 <div>
-                    <span class="font-bold">
-                        {{$comment->poster}}
-                    </span>
+                    <div class="flex flex-col">
+                        <span class="font-bold">
+                            {{$comment->poster}}
+                        </span>
+                        @if ($comment->reply_to)
+                            <span class="text-gray-700 text-sm">
+                                Replied <a href="#comment{{$comment->replyTo->id}}" class="underline cursor-pointer">{{$comment->replyTo->poster}}</a>
+                            </span>
+                        @endif
+                    </div>
                 </div>
                 <div class="text-gray-700">
                     {{$comment->content}}
@@ -18,7 +25,7 @@
                 <div class="flex justify-end">
                     <span class="text-gray-500 cursor-pointer" x-on:click="replyTo = {
                         name: '{{$comment->poster}}',
-                        comment: {{$comment->id}}
+                        comment: '{{$comment->id}}'
                     }">
                         Reply
                     </span>

@@ -23,7 +23,22 @@ Route::resource('posts', PostsController::class);
 
 Route::group(['prefix' => 'api/posts'], function () {
   Route::get('/', [PostsApiController::class, 'index']);
+  Route::get('/{id}', [PostsApiController::class, 'show']);
+
   Route::get('/{id}/content', [PostsApiController::class, 'content']);
 
-  Route::get('/{id}/comments', [PostCommentsApiController::class, 'index']);
+  Route::resource('/{post_id}/comments', PostCommentsApiController::class);
+
+  // Route::get('/{post_id}/comments', [
+  //   PostCommentsApiController::class,
+  //   'index'
+  // ]);
+  // Route::post('/{post_id}/comments', [
+  //   PostCommentsApiController::class,
+  //   'store'
+  // ]);
+  // Route::get('/{post_id}/comments/{comment_id}', [
+  //   PostCommentsApiController::class,
+  //   'show'
+  // ]);
 });

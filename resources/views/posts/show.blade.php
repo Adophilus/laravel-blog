@@ -118,6 +118,6 @@
 		</div>
 	</section>
 
-	@include("inc.comments")
+	@include("inc.comments", ["post" => $post])
 	
 @endsection
