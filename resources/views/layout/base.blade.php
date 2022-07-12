@@ -11,8 +11,15 @@
 </head>
 <body class="bg-gray-100 font-lato selection:bg-primary">
 	@include("inc.navbar")
+	
 	@section("content")
 	@show
+
 	@include("inc.footer")
+
+	<div class="flex flex-col gap-y-4 fixed my-container top-4 left-0 right-0">
+		@section("errors")
+		@show
+	</div>
 </body>
 </html>

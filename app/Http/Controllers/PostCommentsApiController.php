@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Http\Requests\StoreCommentRequest;
+use Illuminate\Support\Facades\Validator;
 
 class PostCommentsApiController extends Controller
 {
@@ -22,12 +23,30 @@ class PostCommentsApiController extends Controller
   /**
    * Store a newly created resource in storage.
    *
-   * @param  \Illuminate\Http\StoreCommentRequest  $request
+   * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(StoreCommentRequest $request)
+  public function store(Request $request)
   {
-    $validated = $request
+    $post_id = $request->route('post_id');
+    if (!Post::find($post_id)) {
+      return redirect("/posts/$post_id#commentsSection");
+    }
+
+    $validator = Validator::make($request->all(), [
+      'email' => ['required', 'min:5', 'max:255'],
+      'name' => ['required', 'min:5', 'max:255'],
+      'message' => ['required', 'min:1', 'max:255'],
+      'replyTo' => ['integer', 'nullable']
+    ]);
+
+    if ($validator->stopOnFirstFailure()->fails()) {
+      return redirect("/posts/$post_id#commentsSection")->withErrors(
+        $validator
+      );
+    }
+
+    $validated = $validator
       ->safe()
       ->only(['name', 'email', 'message', 'replyTo']);
     $comment = new Comment([
@@ -35,7 +54,7 @@ class PostCommentsApiController extends Controller
       'email' => $validated['email'],
       'content' => $validated['message']
     ]);
-    $comment->post()->associate(Post::find($request->route('post_id'))->id);
+    $comment->post()->associate($post_id);
 
     if (
       isset($validated['replyTo']) &&
@@ -46,7 +65,7 @@ class PostCommentsApiController extends Controller
 
     $comment->save();
 
-    return response()->json(['message' => 'posted!'], 201);
+    return redirect("/posts/$post_id#comment" . $comment->id);
   }
 
   /**

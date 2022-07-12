@@ -5,7 +5,7 @@
         </h3>
     </header>
     <div class="text-xl divide-y-2 divide-gray-300">
-        @foreach ($post->comments->splice(0, 3) as $comment)
+        @foreach ($post->comments->reverse()->splice(0, 3) as $comment)
             <div class="flex flex-col py-4 gap-y-1" id="comment{{$comment->id}}">
                 <div>
                     <div class="flex flex-col">
@@ -22,8 +22,12 @@
                 <div class="text-gray-700">
                     {{$comment->content}}
                 </div>
-                <div class="flex justify-end">
-                    <span class="text-gray-500 cursor-pointer" x-on:click="replyTo = {
+                <div class="flex items-center">
+                    <span class="text-gray-500 text-sm">
+                        Posted on {{date_format($comment->created_at, "M j, Y")}}
+                    </span>
+
+                    <span class="text-gray-500 ml-auto cursor-pointer" x-on:click="replyTo = {
                         name: '{{$comment->poster}}',
                         comment: '{{$comment->id}}'
                     }">
