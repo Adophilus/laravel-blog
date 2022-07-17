@@ -5,8 +5,34 @@
 @endsection
 
 @section("content")
+	<!-- hero (mobile) -->
+	<section class="md:hidden relative h-screen">
+      <div class="absolute w-full h-full py-10 px-4 text-white z-10" style="background-color: rgba(0, 0, 0, 0.8)">
+        <div class="flex gap-x-2">
+          <span class="h-1 w-4 bg-primary self-center"></span>
+          <span class="capitalize">
+            {{$posts[0]->category->name}}
+          </span>
+        </div>
+        <h1 class="font-bold text-4xl mb-2">
+          {{$posts[0]->title}}
+        </h1>
+        <h3 class="mb-4">
+          {{$posts[0]->desc}}
+        </h3>
+        <p>
+          <a href="/posts/{{$posts[0]->id}}">
+            <button class="btn btn-primary">Read More</button>
+          </a>
+        </p>
+      </div>
+		<div class="bg-gray-500 w-full h-full overflow-hidden">
+      <img class="object-cover w-full -z-10" src="/imgs/mock.jpg" />
+    </div>
+  </section>
+
 	<!-- hero -->
-	<section class="flex h-screen">
+	<section class="hidden md:flex h-screen">
 		<div class="flex justify-end items-center w-1/2">
       <div class="w-90 p-6 drop-shadow-2xl translate-x-1/2 z-10 bg-white py-10">
         <div class="flex gap-x-2">
@@ -31,7 +57,7 @@
 		<div class="bg-gray-500 w-full">
       <img class="object-cover drop-shadow-2xl w-full -z-10" style="height: 110%" src="/imgs/mock.jpg" />
     </div>
-	</section>
+  </section>
 
 	<!-- Recent Posts -->
 	<section class="bg-white py-10">
