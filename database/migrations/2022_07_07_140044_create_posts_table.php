@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
       $table->string('category_name');
       $table->string('desc');
       $table->mediumText('content');
+      $table->integer('reading_time');
       $table->timestamps();
     });
   }

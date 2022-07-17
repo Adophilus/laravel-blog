@@ -22,7 +22,7 @@
                 {{$post->title}}
             </h2>
             <div class="text-gray-700 mb-4 flex items-center gap-x-4">
-                {{date_format($post->updated_at, "M j, Y")}} <x-circle className="text-gray-700" /> 4 min read
+                {{date_format($post->updated_at, "M j, Y")}} <x-circle className="text-gray-700" /> {{$post->reading_time}} min read
             </div>
             <div>
                 <a class="link link-primary no-underline flex gap-x-2" href="/posts/{{$post->id}}">

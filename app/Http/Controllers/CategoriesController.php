@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
 use App\Models\Category;
 
-class PostsController extends Controller
+class CategoriesController extends Controller
 {
   /**
    * Display a listing of the resource.
@@ -15,9 +14,7 @@ class PostsController extends Controller
    */
   public function index()
   {
-    return view('posts.index')
-      ->with('posts', Post::all())
-      ->with('categories', Category::all());
+    //
   }
 
   /**
@@ -47,12 +44,13 @@ class PostsController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function show($id)
+  public function show(string $name)
   {
-    return view('posts.show')
-      ->with('post', Post::find($id))
-      ->with('posts', Post::all())
-      ->with('categories', Category::all());
+    $categories = Category::all();
+    $category = $categories->find($name);
+    return view('categories.show')
+      ->with('categories', $categories)
+      ->with('category', $category);
   }
 
   /**

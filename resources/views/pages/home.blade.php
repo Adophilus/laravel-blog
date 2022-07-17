@@ -7,30 +7,30 @@
 @section("content")
 	<!-- hero -->
 	<section class="flex h-screen">
-		<div class="flex justify-end items-center w-2/5">
-		<div class="w-90 p-6 drop-shadow-2xl translate-x-1/2 z-10 bg-white py-10">
-			<div class="flex gap-x-2">
-                <span class="h-1 w-4 bg-primary self-center"></span>
-                <span>
-                    Lifestyle
-                </span>
-            </div>
-			<h1 class="font-bold text-4xl mb-2">
-				{{$posts[0]->title}}
-			</h1>
-			<h3 class="mb-4">
-				{{$posts[0]->desc}}
-			</h3>
-			<p>
-				<a href="/posts/{{$posts[0]->id}}">
-					<button class="btn btn-primary">Read More</button>
-				</a>
-			</p>
+		<div class="flex justify-end items-center w-1/2">
+      <div class="w-90 p-6 drop-shadow-2xl translate-x-1/2 z-10 bg-white py-10">
+        <div class="flex gap-x-2">
+          <span class="h-1 w-4 bg-primary self-center"></span>
+          <span class="capitalize">
+            {{$posts[0]->category->name}}
+          </span>
+        </div>
+        <h1 class="font-bold text-4xl mb-2">
+          {{$posts[0]->title}}
+        </h1>
+        <h3 class="mb-4">
+          {{$posts[0]->desc}}
+        </h3>
+        <p>
+          <a href="/posts/{{$posts[0]->id}}">
+            <button class="btn btn-primary">Read More</button>
+          </a>
+        </p>
+      </div>
 		</div>
-		</div>
-		<div class="bg-gray-500 grow">
-	        <img class="object-cover drop-shadow-2xl w-full -z-10" style="height: 110%" src="/imgs/mock.jpg" />
-		</div>
+		<div class="bg-gray-500 w-full">
+      <img class="object-cover drop-shadow-2xl w-full -z-10" style="height: 110%" src="/imgs/mock.jpg" />
+    </div>
 	</section>
 
 	<!-- Recent Posts -->
@@ -44,7 +44,7 @@
 			</header>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-				@foreach ($posts->splice(0, 3) as $post)
+				@foreach ($posts->take(3) as $post)
 					<x-post-tab :cover="false" :post="$post" />
 				@endforeach
 			</div>
@@ -62,7 +62,7 @@
 			</header>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-				@foreach ($posts->splice(0, 6) as $post)
+				@foreach ($posts->take(6) as $post)
 					<x-post-tab :post="$post" />
 				@endforeach
 			</div>
@@ -80,7 +80,7 @@
 			</header>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-				@foreach ($posts->splice(0, 2) as $post)
+        @foreach ($posts->take(2) as $post)
 					<x-post-tab :post="$post" />
 				@endforeach
 			</div>
@@ -99,7 +99,7 @@
 
 			<div class="flex flex-col-reverse lg:flex-row gap-x-10">
 				<div>
-					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 						@foreach ($posts->splice(0, 4) as $post)
 							<x-post-tab :post="$post" />
 						@endforeach

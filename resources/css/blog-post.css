@@ -1,9 +1,9 @@
 .blog-post .heading-2 {
-  @apply text-4xl mb-6 font-pt-serif-caption tracking-wider font-extrabold;
+  @apply text-3xl md:text-4xl mb-6 font-pt-serif-caption tracking-wider font-extrabold;
 }
 
 .blog-post .heading-3 {
-  @apply text-3xl mb-6 font-pt-serif-caption tracking-wider font-bold;
+  @apply text-2xl md:text-3xl mb-6 font-pt-serif-caption tracking-wider font-bold;
 }
 
 .blog-post .leader {
@@ -11,7 +11,7 @@
 }
 
 .blog-post {
-  @apply text-2xl;
+  @apply text-lg md:text-2xl;
 }
 
 .blog-post p {
@@ -35,5 +35,5 @@
 }
 
 .blog-post .cover img {
-  @apply w-full;
+  /* dunno what to do here */
 }

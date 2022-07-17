@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\PostsApiController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\PostCommentsApiController;
 
 Route::get('/', [PagesController::class, 'home']);
 Route::resource('posts', PostsController::class);
+Route::resource('categories', CategoriesController::class);
 
 Route::group(['prefix' => 'api/posts'], function () {
   Route::get('/', [PostsApiController::class, 'index']);

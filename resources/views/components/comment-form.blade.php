@@ -6,7 +6,7 @@
         @csrf
         <div class="flex flex-col gap-y-7">
             <input type="hidden" name="replyTo">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5">
                 <input name="name" type="text" required placeholder="Your name" class="input w-full bg-gray-200 focus:bg-white" />
                 <input name="email" type="email" required placeholder="Your email" class="input w-full bg-gray-200 focus:bg-white" />
             </div>

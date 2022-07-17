@@ -8,30 +8,9 @@
 		<div class="flex lg:hidden items-center">
 			<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
 		</div>
-		<div class="hidden lg:flex gap-x-6 items-center">
-			@foreach ([
-				[
-					'name' => "home",
-					"url" => "/"
-				],
-				[
-					'name' => "travel",
-					"url" => "/categories/travel"
-				],
-				[
-					'name' => "food",
-					"url" => "/categories/food"
-				],
-				[
-					'name' => "lifestyle",
-					"url" => "/categories/lifestyle"
-				],
-				[
-					'name' => "fashion",
-					"url" => "/categories/fashion"
-				]
-			] as $page)
-				<x-nav-link :page="$page" />
+    <div class="hidden lg:flex gap-x-6 items-center">
+      @foreach($categories->splice(0, 4) as $category)
+				<x-nav-link :page="[ 'name' => $category->name, 'url' => '/categories/' . $category->name ]" />
 			@endforeach
 			<form action="/search">
 				<div class="form-control">
