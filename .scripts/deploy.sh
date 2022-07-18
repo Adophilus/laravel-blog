@@ -5,7 +5,7 @@ set -e
 echo "Deploying application ..."
  
 # Enter maintenance mode
-(php artisan down || true
+(php artisan down) || true
     # Update codebase
     git fetch origin main
     git reset --hard origin/main
